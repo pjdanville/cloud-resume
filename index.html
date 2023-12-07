@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" name="viewport" content="width=device-width, initial-scale=1.0">
+    >  
+
+    <title>PJ's Resume</title>
+</head>
+
+<body>
+    <div class="main-image"></div>
+    <div class="main-text">
+
+<header>
+
+    <h1>RESUME by Peter Danville, Jr</h1>
+
+
+    <!-- <h2> by Peter Danville, Jr</h2> -->
+    
+</header>
+
+<div class="text-color">
+
+
+<h3>Professional Summary:</h3>
+<p>
+    Hello World! I am an enthusiastic and determined individual with a strong passion for technology and a keen interest in Information Technology and AWS Cloud engineering. 
+    Equipped with a solid foundation in various computing concepts and a dedication to continuous learning, 
+    I am poised to contribute effectively to dynamic projects within the AWS ecosystem. My proven ability to swiftly adapt to new technologies, 
+    combined with my problem-solving skills, positions me to excel in a collaborative and fast-paced cloud engineering environment.
+
+</p>
+
+
+<h3>Certifications:</h3>
+<ul>
+    <li>AWS Cloud Practitioner</li>
+    <li>Junos JNCIA</li>
+</ul>
+
+
+<h3>Skills:</h3>
+<ul>
+    <li>Networking Fundamentals</li>
+    <li>Routing Policies and Firewall Filters</li>
+    <li>Leadership and Team Management</li>
+    <li>Written and Verbal Communication</li>
+    <li>Building a front-end static website</li>
+    <li>Customer Service</li>
+    <li>AWS</li>
+</ul>
+
+</div>
+    </div>
+
+    <p class="visits">Website visit count:<span id="message">No response</span></p>
+
+    <script>
+
+function fetchData() {
+  const apiUrl = 'https://6aqxrl1pj7.execute-api.us-east-1.amazonaws.com/prod';
+
+  fetch(apiUrl)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error('Network response was not ok');
+      }
+      return response.json();
+    })
+    .then(data => {
+      // Call a function to handle the data, e.g., update the webpage
+      handleData(data);
+    })
+    .catch(error => {
+      console.error('There was a problem with the fetch operation:', error);
+    });
+}
+
+function handleData(data) {
+  const counterElement = document.getElementById('message');
+
+  // Check if the element is found before trying to set textContent
+  if (counterElement) {
+    counterElement.textContent = JSON.stringify(data, 2);
+  } else {
+    console.error('Element with id "message" not found');
+  }
+}
+
+
+// Trigger the API call when the page loads
+window.addEventListener('load', fetchData);
+
+    </script>
+
+</body>
+<footer>
+    <p> <a href="https://www.linkedin.com/in/peter-danville-jr-193348204" target="_blank">linkedin</a></p>
+</footer>
+</html>
