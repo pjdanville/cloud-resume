@@ -20,6 +20,10 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: us-east-1 # Change this to your AWS region
 
-      - name: Sync with S3
+      - name: Sync with S3 Bucket 1
         run: |
-          aws s3 sync s3://www.pjdanville.com s3://pjdanville.com --delete
+          aws s3 sync s3://pjdanville.com --delete
+
+      - name: Sync with S3 Bucket 2
+        run: |
+         aws s3 sync s3://www.pjdanville.com --delete
